@@ -1,0 +1,55 @@
+/* Ghog Style */
+:root {
+  --content-width: 1140px;
+}
+
+.relative {
+  position: relative;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-y-clip {
+  overflow-y: clip;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.max-h-78 {
+  max-height: clamp(400px, 25rem + (1vw - 3.4px) * 22.0253, 748px);
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.ghog-pagination-bullet {
+  width: clamp(50px, 3.125rem + (1vw - 3.4px) * 4.231, 116.85px);
+  height: clamp(45px, 2.8125rem + (1vw - 3.4px) * 3.3335, 97.67px) !important;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pt-31 {
+  padding-top: 31px;
+}
+
+.h-swiper-container {
+  height: clamp(400px, 25rem + (1vw - 3.4px) * 14.0506, 622px);
+}/*# sourceMappingURL=style.css.map */
