@@ -1,27 +1,37 @@
 jQuery(document).ready(function ($) {
   if (typeof galleryData !== "undefined") {
-    var ghogSwiper = new Swiper(".ghog-swiper", {
-      direction: "horizontal",
-      slidesPerView: 1,
+    var thumbSwiper = new Swiper(".ghog-thumb-swiper", {
       loop: true,
+      spaceBetween: 10,
+      freeMode: true,
+      watchSlidesProgress: true,
       autoplay: {
         delay: 3000,
         disableOnInteraction: false,
       },
-      pagination: {
-        el: ".ghog-swiper-pagination",
-        clickable: true,
-        renderBullet: function (index, className) {
-          return (
-            '<img src="' +
-            galleryData[index].url +
-            '" class="' +
-            className +
-            ' ghog-pagination-bullet" alt="' +
-            galleryData[index].alt +
-            '">'
-          );
+      breakpoints: {
+        340: {
+          slidesPerView: 4,
         },
+        1024: {
+          slidesPerView: 5,
+        },
+        1140: {
+          slidesPerView: 9,
+        },
+      },
+    });
+
+    var ghogSwiper = new Swiper(".ghog-swiper", {
+      direction: "horizontal",
+      slidesPerView: 1,
+      loop: true,
+      thumbs: {
+        swiper: thumbSwiper,
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
       },
       navigation: {
         nextEl: ".ghog-swiper-button-next",

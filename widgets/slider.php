@@ -55,34 +55,55 @@ class slider extends Widget_Base
 
     if ($gallery) :
 ?>
-      <div class="swiper-container ghog-swiper relative overflow-hidden w-full">
+      <div class="relative w-full">
+        <div class="swiper-container ghog-swiper relative overflow-hidden w-full">
 
-        <div class="swiper-wrapper h-swiper-container overflow-y-clip">
-          <?php
-          foreach ($gallery as $index => $item) :
-            $image = $item['url'];
-            $alt = $item['alt'];
-          ?>
-            <div class="swiper-slide h-full w-full flex items-center justify-center">
-              <img src="<?php echo esc_url($image); ?>" alt="<?php echo __($alt, 'ghog'); ?>" class="">
-            </div>
-          <?php
-          endforeach;
-          ?>
+          <div class="swiper-wrapper overflow-y-clip h-swiper-container">
+            <?php
+            foreach ($gallery as $index => $item) :
+              $image = $item['url'];
+              $alt = $item['alt'];
+            ?>
+              <div class="swiper-slide">
+                <figure class="swiper-slide-inner h-full w-full flex items-center justify-center">
+                  <img src="<?php echo esc_url($image); ?>" alt="<?php echo __($alt, 'ghog'); ?>" class="swiper-slide-image">
+                </figure>
+              </div>
+            <?php
+            endforeach;
+            ?>
+          </div>
+
+          <script>
+            var galleryData = <?php echo json_encode($gallery); ?>;
+          </script>
+
+          <!-- Add Navigation Arrows -->
+          <div class="swiper-button-next ghog-swiper-button-next sm-hidden"></div>
+          <div class="swiper-button-prev ghog-swiper-button-prev sm-hidden"></div>
+
         </div>
 
-        <script>
-          var galleryData = <?php echo json_encode($gallery); ?>;
-        </script>
-
-        <!-- Add Pagination -->
-        <div class="ghog-swiper-pagination w-full flex items-center justify-center pt-31"></div>
-
-        <!-- Add Navigation Arrows -->
-        <div class="swiper-button-next ghog-swiper-button-next"></div>
-        <div class="swiper-button-prev ghog-swiper-button-prev"></div>
+        <div class="ghog-thumb-swiper swiper pt-31">
+          <div class="swiper-wrapper">
+            <?php
+            foreach ($gallery as $index => $item) :
+              $image = $item['url'];
+              $alt = $item['alt'];
+            ?>
+              <div class="swiper-slide ghog-pagination-bullet">
+                <figure>
+                  <img src="<?php echo esc_url($image); ?>" alt="<?php echo __($alt, 'ghog'); ?>" class="swiper-slide-image">
+                </figure>
+              </div>
+            <?php
+            endforeach;
+            ?>
+          </div>
+        </div>
 
       </div>
+
 
 
 <?php
