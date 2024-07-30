@@ -9,6 +9,7 @@ jQuery(document).ready(function ($) {
         delay: 3000,
         disableOnInteraction: false,
       },
+      centeredSlides: true,
       breakpoints: {
         340: {
           slidesPerView: 4,
